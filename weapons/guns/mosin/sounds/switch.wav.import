@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/switch.wav-f7573c227c7cc88128641d9c29a853f0.sample"
+
+[deps]
+
+source_file="res://weapons/guns/mosin/sounds/switch.wav"
+dest_files=[ "res://.import/switch.wav-f7573c227c7cc88128641d9c29a853f0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
