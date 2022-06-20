@@ -40,7 +40,8 @@ func equip():
 	pass
 
 func reload():
-	pass
+	_reloading = true
+	anim_player.play("")
 
 func get_weapon_info() -> Dictionary:
 	return {
