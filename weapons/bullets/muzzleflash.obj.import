@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/muzzleflash.obj-ca3aeef6e17b5687d0fa61e7040c5be8.mesh"
+
+[deps]
+
+files=[ "res://.import/muzzleflash.obj-ca3aeef6e17b5687d0fa61e7040c5be8.mesh" ]
+
+source_file="res://weapons/bullets/muzzleflash.obj"
+dest_files=[ "res://.import/muzzleflash.obj-ca3aeef6e17b5687d0fa61e7040c5be8.mesh", "res://.import/muzzleflash.obj-ca3aeef6e17b5687d0fa61e7040c5be8.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

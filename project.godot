@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "RigidBody",
 "class": "Bullet",
 "language": "GDScript",
-"path": "res://weapons/Bullet.gd"
+"path": "res://weapons/BulletBase.gd"
 }, {
 "base": "Resource",
 "class": "DialogueRoot",
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Enemies/Enemy_old.gd"
 }, {
-"base": "Reference",
+"base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
 "path": "res://scenes/Player/Player_old.gd"
@@ -59,6 +59,10 @@ _global_script_class_icons={
 config/name="zastava"
 run/main_scene="res://zastava_demo.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Mosin="*res://weapons/guns/mosin/Mosin.gd"
 
 [display]
 
@@ -149,6 +153,11 @@ secondary_weapon={
 meelee_weapon={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":51,"unicode":0,"echo":false,"script":null)
+ ]
+}
+reload={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":82,"unicode":0,"echo":false,"script":null)
  ]
 }
 

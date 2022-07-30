@@ -22,6 +22,7 @@ onready var head = $Head
 onready var body = $Body
 onready var camera = $Head/Camera
 onready var gun_camera = $UI/ViewportContainer/Viewport/GunCamera
+onready var raycast = $Head/Camera/RayCast
 
 onready var move_impulse_vec = Vector3.UP
 onready var gravity_vec = Vector3.ZERO
@@ -29,6 +30,10 @@ onready var snap = Vector3.ZERO
 onready var velocity = Vector3.ZERO
 
 onready var weaponManager = get_node(weapon_manager_path)
+
+# signals
+signal walking
+
 
 enum {
 	WALK,
@@ -42,17 +47,12 @@ func _ready():
 	playerHeight = body.shape.height
 	acceleration = MOVE_SPEED
 
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(deg2rad(-1 * event.relative.x * MOUSE_SENSITIVITY))
 		head.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
-		
-		event.relative
-
-#func state_machine(delta):
-#	pass
+#		event.relative
 
 func set_state(state: int):
 	playerState = state
@@ -74,6 +74,10 @@ func get_input_direction():
 		var res_vec = global_transform.basis.xform(res_dir)
 		return res_vec
 	return Vector3.ZERO
+
+func fire(delta):
+	if Input.is_action_just_pressed("fire"):
+		weaponManager.fire()
 
 func jump(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -105,6 +109,10 @@ func walk(delta):
 	var input = get_input_direction()
 	var direction = input * acceleration
 	velocity = direction + gravity_vec
+	emit_signal("walking")
+
+func _process(delta):
+	fire(delta)
 
 func _physics_process(delta):
 	snap = Vector3.DOWN
